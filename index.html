@@ -2,82 +2,39 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>jason</title>
-<style>
-*{
-	margin:0;
-	padding:0;
-}
-
-div{
-	width:200px;
-	height:200px;
-	background:red;
-	opacity:0.3;
-	margin:20px;
-	filter:alpha(opacity:30);
-}
-</style>
-<link rel="stylesheet" type="text/css" href="index.css" />
-<script>
- window.onload = function(){
- var odiv = document.getElementsByTagName('div');
- for(var i = 0; i<odiv.length; i++){
-	 odiv[i].timer = null;
-	 odiv[i].alpha = 30;
- odiv[i].onmouseover = function(){
-	 startMove(this, 'opacity', 100);
- }
- odiv[i].onmouseout = function(){
-	 startMove(this, 'opacity', 30);
- }
- }
- }
- //var timer = null;
- //var alpha = 30;
- 
-function startMove(obj, attr, target){
-	  clearInterval(obj.timer);
-	  obj.timer = setInterval(function(){
-		  //1. 取当前值
-		  var icur = 0;
-		  if(attr == 'opacity')
-		    icur = Math.round(parseFloat(getStyle(obj,attr))*100);
-		  else
-		    icur = parseInt(getStyle(obj,attr));
-		  //2. 算速度speed
-		  var speed = (target - icur)/8;
-		  speed = speed>0?Math.ceil(speed):Math.floor(speed);
-		  //3. 检测停止
-		  if(icur == target)
-		  clearInterval(obj.timer);
-		  //4. 变化
-		  else{
-			  if(attr == 'opacity'){
-				  obj.style['filter'] = 'alpha(opacity:'+(icur+speed)+')';
-				  obj.style['opacity'] = (icur + speed)/100;
-			  }
-			  else
-		          obj.style[attr] = icur + speed + 'px';
-		  }
-	  },30);
-	  
-  }
- 
- function getStyle(obj,attr){
-	if (obj.currentStyle)
-	  return obj.currentStyle[attr];
-	else 
-      return getComputedStyle(obj,false)[attr];
-}
- 
- 
- </script>
+<title>Personal Info Jason</title>
+<link href="css/personal info.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-<div id = "div1"></div>
-<div id = "div2"><a href="抽奖.html">抽奖</div>
-<div id = "div3"></div>
-<div id = "div4"></div>
+  <div id="wrap">
+    <div id="header">
+      <div id="header_info">
+        <h3 id="header_name">Jason Lee</h3>
+        <ul id="contact">
+          <li>Phone: <em>Don't call me please!</em></li>
+          <li>Wechat: <em>lijuanshu</em></li>
+          <li>Email: <em>jasonlee1900@outlook.com</em></li>
+        </ul>
+      </div>
+    </div>
+    <div id="mainbody">
+      <div id="personal_info">
+      <img id="photo" src="images/头像.JPG" width="100px" alt=""/>      <ul id="introduction">
+        <li>Major：IBTM, Automation</li>
+        <li>Hobbies: Badminton, Soccer, Guitar, Table-tennis</li>
+        <li>Professional Skills：C, javascript, HTML, CSS, Linux</li>
+      </ul>
+      </div>
+      <div id="other_info">
+       <div id="image_processing">
+         <a href="E-images-processing.html"><em>Image Processing Project</em></a>
+       </div>
+      </div>
+    </div>
+    <div id="footer">3
+    </div>
+  </div>
 </body>
+
 </html>

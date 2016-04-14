@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Creating an Image</title>
+<style type="text/css">
+*{margin:0; padding:0; list-style:none}
+h3{display:block;
+margin-top:20px;border-bottom:solid #555 1px}
+p{
+	text-indent:10px;
+}
+#wrap{
+	margin-left:30px;
+}
+</style>
+</head>
+
+<body>
+
+  <h1 style="line-height:30px; text-align:center;">Here is the process of creating an image by algorithm</h1>
+<div id="wrap">  
+  <ul style="margin-top:20px">
+    <li><h3>Result</h3><img src="images/myImage.png" width="200" /></li>
+    <li><h3>Algorithm</h3>
+    <p>We get the pixel of a new picture that we produced, and set their R,G,B values according to the position.</p></li>
+    <li><h3>Code</h3>
+    <pre>
+      function dist(pixel,x,y){
+    var dx = pixel.getX()-x;
+    var dy = pixel.getY()-y;
+    return Math.sqrt(dx*dx+dy*dy);
+}
+var output = new SimpleImage(320,320);
+for(var pixel of output.values()){
+    if(dist(pixel,100,100)<50)
+    pixel.setRed(255-4*dist(pixel,100,100));
+    else if(dist(pixel,200,200)<80)
+    pixel.setGreen(255-3*dist(pixel,200,200));
+    else if(Math.random()>0.995){
+    pixel.setGreen(255);
+    pixel.setRed(255);
+    }
+    pixel.setBlue(Math.max((1.5*pixel.getY()-pixel.getX()),(pixel.getX()-1.5*pixel.getY())));
+}
+print(output);
+    </pre>
+    </li>
+  </ul>
+  </div>
+</body>
+</html>
