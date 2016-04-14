@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Adding a Pattern</title>
+<style type="text/css">
+#wrap{margin-left:30px;}
+h3{border-bottom:solid 1px #555}
+</style>
+</head>
+
+<body>
+
+<h1> Adding a border to an image</h1>
+  <div id = "wrap">
+   <div id = "result">
+   <h3>Result</h3>
+     <img src="../../images/image_processing/border1.png" width="200px"/>isn't she beautiful?!
+     <img src="../../images/image_processing/border2.png" width="200px"/>
+   </div>
+   <div id = "algorithm">
+     <h3>Algorithm</h3>
+     <p>We find the specific position of the pixels that we wanna define as border, set their R,B,G values as black</p>
+   </div>
+   <div id = "code">
+   <h3>Code</h3>
+   <pre>
+     var image = new SimpleImage("647318356576520916.jpg");
+print(image);
+var w = image.getWidth();
+var h = image.getHeight();
+for(var p of image.values()){
+    
+    if(p.getX()>(w-11) || p.getX()<10 || p.getY()>(h-11) || p.getY()<10){
+    p.setBlue(0);
+    p.setGreen(0);
+    p.setRed(0);
+    }
+}
+
+print(image);
+   </pre>
+   </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hiding a Picture</title>
+<link href="../../css/img_processing/image_result_code_algorithm.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+ <h1>Hiding a picture in another picture</h1>
+ <div id="wrap">
+   <div id="result">
+     <h3>Result</h3>
+     <img src="../../images/image_processing/hide1.png" width="200px"/>
+     <span>+</span>
+     <img src="../../images/image_processing/hide2.png" width="200px"/>
+     <span>=</span>
+     <img src="../../images/image_processing/hide3.png" width="200px"/>
+     <span>-->></span>
+     <img src="../../images/image_processing/hide4.png" width="200px"/>
+   </div>
+   <div id="algorithm">
+     <h3>Algorithm</h3>
+     
+     <p>
+      The basic algorithm is to extract the first 4 bits of R,G,B values of the first picture's every pixel, with the last 4 bits of the second picture's every pixel's R,G,B value, they combine the new picture.
+     </p>
+   </div>
+   <div id="code">
+     <h3>Code</h3>
+     <pre>function crop(image,width,height){
+    var newimg = new SimpleImage(width,height);
+    for(var newpixel of newimg.values()){
+        var x = newpixel.getX();
+        var y = newpixel.getY();
+        var pixel = image.getPixel(x,y);
+        newpixel.setBlue(pixel.getBlue());
+        newpixel.setGreen(pixel.getGreen());
+        newpixel.setRed(pixel.getRed());
+    }
+    return newimg;
+}
+
+function determineW(img1,img2){
+    if(img1.getWidth()<=img2.getWidth())
+    return img1.getWidth();
+    else
+    return img2.getWidth();
+}
+
+function determineH(img1,img2){
+    if(img1.getHeight()<=img2.getHeight())
+    return img1.getHeight();
+    else
+    return img2.getHeight();
+}
+
+function pixchange(pixelval){
+    var pixval = Math.floor(pixelval/16)*16;
+    return pixval;
+}
+
+function chop2hide(img){
+    var newimg = new SimpleImage(img.getWidth(),img.getHeight());
+    for(var newpixel of newimg.values()){
+        var x = newpixel.getX();
+        var y = newpixel.getY();
+        var pixel = img.getPixel(x,y);
+        newpixel.setBlue(pixchange(pixel.getBlue()));
+        newpixel.setGreen(pixchange(pixel.getGreen()));
+        newpixel.setRed(pixchange(pixel.getRed()));
+    }
+    return newimg;
+}
+
+function pixshift(pixval){
+    var pix = Math.floor(pixval/16);
+    return pix;
+}
+function shift(img){
+    var newimg=new SimpleImage(img.getWidth(),img.getHeight());
+    for(var newpixel of newimg.values()){
+        var x = newpixel.getX();
+        var y = newpixel.getY();
+        var pixel = img.getPixel(x,y);
+        newpixel.setGreen(pixshift(pixel.getGreen()));
+        newpixel.setBlue(pixshift(pixel.getBlue()));
+        newpixel.setRed(pixshift(pixel.getRed()));
+    }
+    return newimg;
+}
+
+function combine(img1,img2){
+    var newimg = new SimpleImage(img1.getWidth(),img2.getHeight());
+    for(var newpixel of newimg.values()){
+        var x = newpixel.getX();
+        var y = newpixel.getY();
+        newpixel.setGreen(img1.getPixel(x,y).getGreen()+img2.getPixel(x,y).getGreen());
+        newpixel.setBlue(img1.getPixel(x,y).getBlue()+img2.getPixel(x,y).getBlue());
+        newpixel.setRed(img1.getPixel(x,y).getRed()+img2.getPixel(x,y).getRed());
+    }
+    return newimg;
+}
+
+function extractpix(pixval){
+    var pix = (pixval-Math.floor(pixval/16)*16)*16;
+    return pix;
+}
+function extract(img){
+    var newimg = new SimpleImage(img.getWidth(),img.getHeight());
+    for(var newpixel of newimg.values()){
+        var x = newpixel.getX();
+        var y = newpixel.getY();
+        newpixel.setGreen(extractpix(img.getPixel(x,y).getGreen()));
+        newpixel.setBlue(extractpix(img.getPixel(x,y).getBlue()));
+        newpixel.setRed(extractpix(img.getPixel(x,y).getRed()));
+    }
+    return newimg;
+}
+
+var img1 = new SimpleImage("IMG_0723.JPG");
+var img2 = new SimpleImage("IMG_2377.JPG");
+var img3 = chop2hide(img1);
+var img4 = shift(img2);
+var img5 = combine(img3,img4);
+var img6 = extract(img5);
+print(img1);
+print(img2);
+print(img5);
+print(img6);
+   </pre>
+   </div>
+ </div>
+</body>
+</html>
