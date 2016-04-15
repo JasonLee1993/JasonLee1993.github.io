@@ -1,17 +1,17 @@
 *{margin:0; padding:0; font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif; font-size:14px; list-style:none; }
 #wrap{margin:200px auto; width:90%;}
-#header{border: solid #555 1px; border-bottom:none; width:100%; overflow:hidden}
+#name{border-bottom:solid black 3px; width:38.2%; float:left; font-size: 30px; line-height:50px; height:50px; text-indent:15px; background:black; color:white}
+#contact{border-top: solid 1px black; border-bottom: solid 1px black; width:61.8%; float:left;}
+.phone{width:33.3%; height: 50px; line-height: 50px; text-align:center; font-size: 12px; float:left; opacity:1}
+.phone_mes{text-indent:10px}
+.block{display: block; height:52px; width:1.5px; background: black;position:relative;top:-51px}
 #mainbody{width:100%; overflow:hidden}
-#footer{border: solid #555 1px; border-top:none; width:100%;}
-#personal_info{border: solid 1px #555; width: 39.3%; float: left;}
-#other_info{border: solid 1px #555; border-left:none;width: 60.25%; float: right;}
-#header_info{margin: 0 auto; width: 40%;}
-#header_name{width: 150px; font-size: 30px; height: 50px; text-align:center; line-height:50px; float: left; margin-top:10px}
-#contact{float:right; margin-top: 10px;}
-#contact li em{ font-size:20px;}
-#contact li{line-height: 20px;}
+#footer{width:100%;}
+#personal_info{width: 38.2%; float: left; background-image:url(../images/%E5%A4%B4%E5%83%8F.JPG);background-size:100%}
+#other_info{width: 61.8%; float: right; background:black; color:white}
 #photo{margin:0 auto; margin-top: 20px; display:block; border-radius: 10px}
-#introduction{margin:0 auto; margin-top: 20px; width: 50%}
-#image_processing{text-align:center; line-height:50px;}
-#image_processing a{text-decoration:none; color:black;}
-#image_processing a em{font-size:20px;}
+#introduction{margin:0 auto; margin-top: 20px; width: 50%; color:white;}
+#introduction li{font-size:20px}
+#image_processing{text-align:center; line-height:100px;}
+#image_processing a{text-decoration:none; color:white; display:inline-block}
+#image_processing a em{font-size:25px;}
