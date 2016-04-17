@@ -8,10 +8,10 @@
 #mainbody{width:100%; overflow:hidden}
 #footer{width:100%;}
 #personal_info{width: 38.2%; float: left; background-image:url(../images/%E5%A4%B4%E5%83%8F.JPG);background-size:100%}
-#other_info{width: 61.8%; float: right; background:black; color:white}
+#other_info{width: 61.8%; float: right;}
 #photo{margin:0 auto; margin-top: 20px; display:block; border-radius: 10px}
 #introduction{margin:0 auto; margin-top: 20px; width: 50%; color:white;}
 #introduction li{font-size:20px}
-#image_processing{text-align:center; line-height:100px;}
-#image_processing a{text-decoration:none; color:white; display:inline-block}
-#image_processing a em{font-size:25px;}
+.project_name{text-align:center; line-height:100px;}
+.project_name a{text-decoration:none; display:inline-block}
+.project_name a em{font-size:25px;}

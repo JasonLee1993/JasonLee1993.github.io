@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;list-style:none;font-size:25px; font-family:"Microsoft YaHei"; text-decoration:none; font-weight:400}
+.sub-dl{ display:none;}
+#wrap{margin:20px auto 0; width:500px;}
+.list{padding:0px 60px}
+.list li{padding: 10px 0px; border-bottom: solid 1px #f2f2f2; background: white}
+.list li h1 a{color:black; text-indent: 10px}
+.sub-dl dd{margin: 1px 0px; background:black; padding: 10px 0 10px 10px	}
+.sub-dl dd a{color:white; font-size: 20px}
+.list li h1 a:hover{color:#E74D8B; margin-left:20px}
+.sub-dl dd a:hover{color:#F7A6D1; margin-left:20px}
+.sub-dl dd:hover{opacity:0.5; color:#F7A6D1;}
