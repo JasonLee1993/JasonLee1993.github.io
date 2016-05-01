@@ -3,11 +3,11 @@
     padding:0;
 }
 .grid-container{
+	box-sizing:border-box;
 	width:100%;
 	max-width: 1200px;
 	background:#fff;
 	padding:10px;
-	box-sizing:border-box;
 }
 .grid-container *{
 	box-sizing: border-box;
