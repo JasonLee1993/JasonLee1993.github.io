@@ -1,0 +1,73 @@
+$grid-gutter-width: 1.5rem;
+$grid-columns:12;
+*{box-sizing: border-box;}
+html{font-size:16px;font-family:"Helvetica Neue",sans-serif;
+margin:0;}
+body{font-size:1rem;padding:1.5rem;background-color:#fff;}
+.content-main,.content-secondary{
+	background:#eee;
+	line-height:100px;
+	text-align:center;
+	border:1px solid #ddd;
+}
+
+/*grid system*/
+/*generate semantic grid columns with these mixins*/
+
+/*generate container element*/
+@mixin make-container($gutter:$grid-gutter-width){
+	margin-right:auto;
+	margin-left:auto;
+	padding-left:($gutter)/2;
+	padding-right:($gutter)/2;
+}
+/*create a wrapper for a series of columns*/
+@mixin make-row($gutter:$grid-gutter-width){
+	margin-left:($gutter/-2);
+	margin-right:($gutter/-2);
+}
+@mixin make-col($gutter:$grid-gutter-width){
+	position:relative;
+	float:left;
+	min-height:1px;
+	padding-left:($gutter/2);
+	padding-right:($gutter/2);
+}
+@mixin make-col-span($columns){
+	width:percentage(($columns/$grid-columns));
+}
+@mixin make-col-offset($columns){
+	margin-left:percentage(($columns/$grid-columns));
+}
+@mixin make-col-push($columns){
+	left:percentage(($columns/$grid-columns));
+}
+@mixin make-col-pull($columns){
+	right:percentage(($columns/$grid-columns));
+}
+
+.container{
+	@include make-container();
+}
+.row{
+	@include make-row();
+}
+.container-main{
+	@include make-col();
+	@media (max-width: 32em){
+		@include make-col-span(6);
+	}
+	@media (min-width: 32.1em){
+		@include make-col-span(8);
+	}
+}
+.content-secondary {
+	@include make-col();
+	@media (max-width: 32em) {
+    @include make-col-span(6);
+  }
+
+    @media (min-width: 32.1em) {
+    @include make-col-span(4);
+  }
+}
