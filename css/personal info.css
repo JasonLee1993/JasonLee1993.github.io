@@ -9,6 +9,7 @@ body{
 	background-image:url(../images/blog_background.jpg);
 	background-size: 100%;
 	position:relative;
+	background-repeat:no-repeat;
 }
 #wrap{
 	width:100%;
