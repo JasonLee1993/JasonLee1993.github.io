@@ -6,9 +6,10 @@
 	text-decoration:none;
 }
 body{
-	background-image:url(../images/blog_background.jpg);
+	background-image:url(../images/写真.JPG);
 	background-size: 100%;
 	position:relative;
+	background-repeat: no-repeat;
 }
 #wrap{
 	width:100%;
@@ -69,8 +70,8 @@ body{
 #project .proj3{
 	background:rgba(240,94,28,0.5); 
 }
-.project_name:hover{
-	opacity:1;
+#project .proj4{
+	background:rgba(248,195,205,0.5);
 }
 #footer{
 	width:100%;
@@ -78,4 +79,7 @@ body{
 	color:#eee;
 	text-align:center;
 	font-size:12px;
+}
+#project{
+	
 }
