@@ -9,7 +9,11 @@ body{
 	background-image:url(../images/写真.JPG);
 	background-size: 100%;
 	position:relative;
+<<<<<<< HEAD
 	background-repeat: no-repeat;
+=======
+	background-repeat:no-repeat;
+>>>>>>> origin/master
 }
 #wrap{
 	width:100%;
@@ -80,6 +84,9 @@ body{
 	text-align:center;
 	font-size:12px;
 }
+<<<<<<< HEAD
 #project{
 	
 }
+=======
+>>>>>>> origin/master
