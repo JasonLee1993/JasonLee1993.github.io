@@ -6,29 +6,29 @@
 	text-decoration:none;
 }
 body{
-	background-image:url(../images/写真.JPG);
+	background-image:url(../images/blog_background.JPG);
 	background-size: 100%;
 	position:relative;
-<<<<<<< HEAD
 	background-repeat: no-repeat;
-=======
-	background-repeat:no-repeat;
->>>>>>> origin/master
+	overflow:hidden;
 }
 #wrap{
 	width:100%;
 	margin:0 auto;
+	overflow: hidden;
 }
 #header{
 	width：100%;
-	height:30px;
+	height:10%;
 	color:white;
 	padding:10px;
+	overflow:hidden;
 }
 #name{
 	vertical-align: middle;
 	margin:0 20px;
 	float:left;
+	font-size:12px;
 }
 #contact{
 	display:inline-block;
@@ -46,36 +46,65 @@ body{
 #contact .copy_right{
 	color:white;
 	font-size:5px;
+	text-decoration:line-through;
 }
-#project{
+.mainbody_wrap{
+	overflow:hidden;
 	width:100%;
-	height:300px;
-	margin:50px auto;
+	display:flex;
 }
-#project td{
+.mainbody {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	height:100%;
+	width:85%;
+	margin:auto;
+}
+.nav{
+	display:block;
+	width:15%;
+	background:rgba(252,250,242,0.3); 
+	height:180px;
+	margin:auto;
+	margin-top: 5px;
+	padding-top:10px;
+	margin-left:3px;
+	border-radius:3px;
+	box-shadow: 1px 1px 2px #ddd;
+}
+.project{
 	text-align:center;
-	width:100px;
+	width:98%;
+	height:100px;
+	margin:auto;
+	border-radius: 3px;
+	margin-top:5px;
 }
-#project td a {
-	font-size:20px;
+.project a {
+	font-size:18px;
 	color:white;
 	font-family:"Times New Roman";
 	font-style:oblique;
+	line-height:100px;
 }
-#project td{
-	border-radius: 3px;
-}
-#project .proj1{
+.proj1{
 	background:rgba(168,216,185,0.5); 
 }
-#project .proj2{
+.proj2{
 	background:rgba(106,76,56,0.5); 
 }
-#project .proj3{
+.proj3{
 	background:rgba(240,94,28,0.5); 
 }
-#project .proj4{
+.proj4{
 	background:rgba(248,195,205,0.5);
+}
+.proj5{
+	background:rgba(215,196,187,0.5);
+}
+.proj6{
+	background:rgba(203,27,69,0.5);
 }
 #footer{
 	width:100%;
@@ -83,10 +112,30 @@ body{
 	color:#eee;
 	text-align:center;
 	font-size:12px;
+	position:fixed;
+	bottom:0;
 }
-<<<<<<< HEAD
-#project{
-	
+.nav li{
+	width:100%;
+	height:30px;
+	text-align:center;
+	display:block;
+	border-bottom:solid 0.5px #000;
 }
-=======
->>>>>>> origin/master
+.nav li a{
+	line-height:30px;
+	display:inline-block;
+	width:80%;
+	margin:0 auto;
+	color:black;
+	text-align:center;
+	font-size:12px;
+
+}
+.nav .selected a{
+	color:white;
+	font-style:italic;
+}
+.portfolio{
+
+}

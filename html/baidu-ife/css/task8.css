@@ -1,9 +1,9 @@
-﻿*{
+*{
 	margin:0;
     padding:0;
 }
 .grid-container{
-	box-sizing:border-box;
+	box-sizing: border-box;
 	width:100%;
 	max-width: 1200px;
 	background:#fff;
@@ -30,7 +30,7 @@
 	border: solid 1px #999;
 	height:50px;//高度为50px。
 }
-@media all and (min-width:1334.1px){
+@media all and (min-width:768.1px){
 	.col-1{
 		width:8.33%;
 	}
@@ -50,7 +50,7 @@
 		width:50%;
 	}
 }
-@media all and (max-width:1334px){
+@media all and (max-width:768px){
 	.col-1{
 		width:16.67%;
 	}
