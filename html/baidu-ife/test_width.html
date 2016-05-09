@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+		line-height:30px;
+		font-family:"微软雅黑";
+	}
+	.narrowbar{
+		background:pink;
+		width:100%;
+		height:30px;
+	}
+	.fixedbar{
+		width:2000px;
+		height:30px;
+		background:brown;
+	}
+	p{
+		border-bottom:1px solid black;
+		border-right:1px solid black;
+	}
+	</style>
+</head>
+<body>
+<p>1. 以下结果不精确，基本一致。js</p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var w=window.innerWidth;
+var h=window.innerHeight;
+var w2=document.documentElement.clientWidth;
+var h2=document.documentElement.clientHeight;
+x=document.getElementById("demo1");
+x.innerHTML="浏览器的内部窗口宽度：" + w + "，高度：" + h + "。";
+y=document.getElementById("demo2");
+y.innerHTML="浏览器的内部窗口宽度(不含滚动条)：" + w2 + "，高度(不含滚动条)：" + h2 + "。";
+</script>
+<p>2. 探索100%宽度</p>
+<div class="narrowbar">宽度设置为100%。页面放大到一定程度后，该宽度永远为窗口宽度。会变小</div>
+<div class="fixedbar">宽度固定为2000px。页面放大后，该宽度不变</div>
+</body>
+</html>

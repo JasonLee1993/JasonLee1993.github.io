@@ -7,63 +7,49 @@
 *{
 	margin:0;
 	padding:0;
-	font-size:16px;
-	font-family:"微软雅黑";
-}
-body{
-	background-image:url(../../images/写真.JPG);
-	background-repeat:no-repeat;
-	background-size: 100%;
-	display:flex;
-	height:500px;
-}
-.wrap{
-	width:400px;
-	display:flex;
-	flex-direction:row;
-	height:300px;
-	margin:auto;
-	flex-wrap: wrap;
-}
-.wrap a{
-	display:block;
-	width:100px;
-	height:100px;
-	line-height: 100px;
-	text-align:center;
+	font-size:30px;
+	font-family:"楷体";
 	text-decoration:none;
 	color:white;
-	box-sizing: border-box;
-	border-collapse: collapse;
-	border:0.5px solid white;
-	border-radius: 5px;
 }
-.wrap .selected{
-	background:rgba(0,0,0,0.7);
-	color:white;
+body{
+	display:flex;
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-image:url(../../images/写真2.JPG);
 }
-.wrap .p{
-	background:rgba(119,64,141,0.5);
+.wrap{
+	width:80%;
+	display:flex;
+	height:500px;
+	margin:auto;
+	flex-wrap:wrap;
+
 }
-.wrap .g{
-	background:rgba(0,137,108,0.5);
+a{
+	display:block;
+	width:45%;
+	height:45%;
+	margin:auto;
+	text-align:center;
+	line-height:200px;
+	border-radius:3px;
+	border:1px solid #ccc;
+	transition: background 1s, color 1s;
 }
+a:hover{
+	background:rgba(78,79,151,0.5);
+	color:black;
+}
+
 </style>
 </head>
 <body>
 <div class="wrap">
-<a href="task1.html">Task 1</a>
-<a href="task2.html">Task 2</a>
-<a href="task3.html">Task 3</a>
-<a href="task4.html">Task 4</a>
-<a href="task5.html">Task 5</a>
-<a class="selected" href="task6.html">Task 6</a>
-<a href="task7.html">Task 7</a>
-<a class="selected p" href="task8.html">Task 8</a>
-<a class="selected g" href="task9.html">Task 9</a>
-<a href="task10.html">Task 10</a>
-<a href="task11.html">Task 11</a>
-<a href="task12.html">Task 12</a>
+<a href="stage1.html">第一阶段</a>
+<a href="stage2.html">第二阶段</a>
+<a href="stage3.html">第三阶段</a>
+<a href="stage4.html">第四阶段</a>
 </div>
 </body>
 </html>
