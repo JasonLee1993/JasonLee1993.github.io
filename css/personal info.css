@@ -154,6 +154,8 @@ body{
 	width:120%;
 	height:20px;
 	transform:rotate(-30deg);
+	-moz-transform:rotate(-30deg);
+	-webkit-transform:rotate(-30deg);
 }
 .starl{
 	position:absolute;
@@ -161,6 +163,8 @@ body{
 	width:120%;
 	height:20px;
 	transform:rotate(30deg);
+	-moz-transform:rotate(30deg);
+	-webkit-transform:rotate(30deg);
 }
 .star1{
 	top:-30%;
