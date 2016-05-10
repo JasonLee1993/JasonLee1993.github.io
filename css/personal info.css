@@ -6,7 +6,7 @@
 	text-decoration:none;
 }
 body{
-	background-image:url(../images/blog_background.jpg);
+	background-image:url(../images/blog_background.JPG);
 	background-size: 100%;
 	position:relative;
 	background-repeat: no-repeat;
@@ -64,14 +64,23 @@ body{
 .nav{
 	display:block;
 	width:15%;
-	background:rgba(252,250,242,0.3); 
-	height:180px;
-	margin:auto;
 	margin-top: 5px;
+	margin-bottom:0px;
 	padding-top:10px;
 	margin-left:3px;
 	border-radius:3px;
+	position:relative;
+}
+.nav ul{
+	background:rgba(252,250,242,0.3); 	
 	box-shadow: 1px 1px 2px #ddd;
+}
+.nav .info{
+	position:absolute;
+	right:0;
+	bottom:0;
+	top:190px;
+	left:0px;
 }
 .project{
 	text-align:center;
@@ -136,6 +145,56 @@ body{
 	color:white;
 	font-style:italic;
 }
-.portfolio{
-
+.minfo{
+	color:white;
+}
+.star{
+	position:absolute;
+	display:block;
+	width:120%;
+	height:20px;
+	transform:rotate(-30deg);
+}
+.starl{
+	position:absolute;
+	display:block;
+	width:120%;
+	height:20px;
+	transform:rotate(30deg);
+}
+.star1{
+	top:-30%;
+}
+.star2{
+	top:-10%;
+}
+.star3{
+	top:55%;
+}
+.star4{
+	top:-20%;
+}
+.star5{
+	top:10%;
+}
+.star6{
+	top:45%;
+}
+.star1 img{
+	width:6px;
+}
+.star2 img{
+	width:7px;
+}
+.star3 img{
+	width:7px;
+}
+.star4 img{
+	width:9px;
+}
+.star5 img{
+	width:5px;
+}
+.star6 img{
+	width:6px;
 }
