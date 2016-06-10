@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stage 2 - JavaScript</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+	font-size:16px;
+	font-family:"微软雅黑";
+}
+body{
+	background-image:url(../../images/写真.JPG);
+	background-repeat:no-repeat;
+	background-size: 100%;
+	display:flex;
+	height:500px;
+}
+.wrap .selected,a{
+	transition: background 0.5s;	
+}
+.wrap .selected:hover,a:hover{
+	background:rgba(245,150,170,0.8);
+}
+.wrap{
+	width:400px;
+	display:flex;
+	flex-direction:row;
+	height:300px;
+	margin:auto;
+	flex-wrap: wrap;
+}
+.wrap a{
+	display:block;
+	width:100px;
+	height:100px;
+	line-height: 100px;
+	text-align:center;
+	text-decoration:none;
+	color:white;
+	box-sizing: border-box;
+	border-collapse: collapse;
+	border:0.5px solid white;
+	border-radius: 5px;
+}
+.wrap .selected{
+	background:rgba(0,0,0,0.7);
+	color:white;
+}
+.wrap .p{
+	background:rgba(119,64,141,0.5);
+}
+.wrap .g{
+	background:rgba(0,137,108,0.5);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a href="task13.html">Task 13</a>
+<a href="task14.html">Task 14</a>
+<a href="task15.html">Task 15</a>
+<a class="selected" href="task16.html">Task 16</a>
+<a href="task71.html">Task 17</a>
+<a class="selected p" href="task18.html">Task 18</a>
+<a class="selected g" href="task19.html">Task 19</a>
+<a href="task20.html">Task 20</a>
+<a href="task21.html">Task 21</a>
+<a href="task22.html">Task 22</a>
+<a href="task23.html">Task 21</a>
+<a href="task24.html">Task 22</a>
+</div>
+</body>
+</html>
