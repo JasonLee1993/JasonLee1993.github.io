@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 21</title>
+	<style>
+		#tag-display div, #hobby-display div{
+			background:red;
+			color:white;
+			float:left;
+			width:50px;
+			height:20px;
+			margin:10px;
+			text-align: center;
+			line-height: 20px;
+		}
+		#hobby-display div{
+			background:blue;
+			height:50px;
+			line-height: 50px;
+		}
+		#tag-display{
+			overflow: hidden;
+		}
+		p{
+			margin-bottom:10px;
+		}
+	</style>
+</head>
+<body>
+	<p>please input the tags you want to add. several times</p>
+	<input id="tag-input" />
+	<div id="tag-display"></div>
+	<p>please input the hobbies you want to add. at one time.</p>
+	<textarea id="hobby-input" cols="20" rows="5"></textarea>
+	<button id="confirm-hobby">confirm hobbies</button>
+	<div id="hobby-display"></div>
+	<script src="js/task21.js"></script>
+</body>
+</html>
