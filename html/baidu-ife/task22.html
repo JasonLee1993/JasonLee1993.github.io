@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 22</title>
+	<style>
+		*{
+			margin:0;padding:0;
+			box-sizing: border-box;
+			font-family: "微软雅黑";
+			font-size: 20px;
+			border:1px solid #888;
+		}
+		.root{
+			display:flex;
+			margin:50px auto;
+			width:80%;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.child_1{
+			display:flex;
+			margin:10px;
+			justify-content: space-around;
+		}
+		.child_2{
+			display:flex;
+			margin:10px;
+			justify-content: space-around;
+			align-items: center;
+		}
+		.child_3{
+			margin:10px;
+			width:80px;
+			height:80px;
+		}
+		.button{
+			display:flex;
+			justify-content: center;
+			border:none;
+		}
+		button{
+			margin:5px;
+		}
+		p{
+			text-align: center;
+			margin-top: 10px;
+			border:none;
+
+		}
+	</style>
+</head>
+<body>
+<p>preOrder, inOrder, postOrder Visible !</p>
+	<div class="root">
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+		<div class="child_1">
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+			<div class="child_2">
+				<div class="child_3"></div>
+				<div class="child_3"></div>
+			</div>
+		</div>
+	</div>
+	<div class="button">
+	<button id="DLR">preOrder</button>
+	<button id="LDR">inOrder</button>
+	<button id="LRD">postOrder</button>
+	</div>
+	<script src="js/task22.js"></script>
+</body>
+</html>
