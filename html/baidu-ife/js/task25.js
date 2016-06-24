@@ -20,7 +20,7 @@ function setCloseandOpen(divs,num){
 	}
 	divs[num].onclick = function(e){
 		e.stopPropagation();
-		if(select)
+		if(select>=0)
 			divs[select].style.background = '';
 		select = num;
 		divs[num].style.background = 'pink';
