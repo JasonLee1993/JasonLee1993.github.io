@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 23</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+			font-family: "微软雅黑";
+			font-size: 15px;
+		}
+		p{
+			text-align: center;
+			margin:20px 0;
+			background:#eee;
+		}
+		.root,.child_1,.child_2,.child_3,.child_4{
+			display:flex;
+			justify-content: space-around;
+			margin:10px;
+			border:1px solid #ccc;
+		}
+		.root{
+			margin:0;
+		}
+		#buttons{
+			display:flex;
+			justify-content: center;
+		}
+		button{
+			margin:10px;
+			width:50px;
+			text-align: center;
+		}
+		button:hover{
+			background:blue;
+			color:white;
+		}
+		input{
+			margin:10px auto;
+			display:block;
+			width:260px;
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+<p>Depth First Search and Breadth First Search for A Tree .</p>
+	<div class="root">Super
+		<div class="child_1">Listen
+			<div class="child_2">Apple
+				<div class="child_3">Pear</div>
+				<div class="child_3">Pig</div>
+				<div class="child_3">Cola</div>
+				<div class="child_3">Soccer</div>
+			</div>
+			<div class="child_2">Phone</div>
+			<div class="child_2">
+				<div class="child_3">Book</div>
+				<div class="child_3">School</div>
+			</div>
+		</div>
+		<div class="child_1">Note
+			<div class="child_2">Human
+				<div class="child_3">Code</div>
+				<div class="child_3">Operate</div>
+				<div class="child_3">Man</div>
+			</div>
+			<div class="child_2">Program
+				<div class="child_3">Bement
+					<div class="child_4">Cat</div>
+				</div>
+				<div class="child_3">Grass</div>
+			</div>
+		</div>
+		<div class="child_1">Fish</div>
+	</div>
+	<div id="buttons">
+	<button id="BF">BF</button>
+	<button id="DF">DF</button>
+	<button id="BFS">BFS</button>
+	<button id="DFS">DFS</button>
+	</div>
+	<input id="search"/>
+	<script src="js/task23.js"></script>
+</body>
+</html>
