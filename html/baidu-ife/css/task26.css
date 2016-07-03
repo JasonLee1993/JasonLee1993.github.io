@@ -1,0 +1,100 @@
+*{
+	margin:0;
+	padding:0;
+	font-family:"微软雅黑"
+}
+#messageSender p{
+	margin:10px;
+}
+#messageSender p button{
+	margin-right:10px;
+}
+#planet{
+	width:100px;
+	height:100px;
+	position:fixed;
+	background:orange;
+	top:50%;
+	left:50%;
+	transform:translate(-50px,-50px);
+	border-radius:50px;
+}
+.orbit1{
+	position:fixed;
+	width:180px;
+	height:180px;
+	top:50%;
+	left:50%;
+	transform:translate(-90px,-90px);
+	border-radius:90px;
+	border:solid 1px #ccc;
+}
+.orbit2{
+	position:fixed;
+	width:300px;
+	height:300px;
+	top:50%;
+	left:50%;
+	transform:translate(-150px,-150px);
+	border-radius:150px;
+	border:solid 1px #ccc;
+}
+.orbit3{
+	position:fixed;
+	width:400px;
+	height:400px;
+	top:50%;
+	left:50%;
+	transform:translate(-200px,-200px);
+	border-radius:200px;
+	border:solid 1px #ccc;
+}
+.orbit4{
+	position:fixed;
+	width:500px;
+	height:500px;
+	top:50%;
+	left:50%;
+	transform:translate(-250px,-250px);
+	border-radius:250px;
+	border:solid 1px #ccc;
+}
+.spaceShip{
+	width:60px;
+	height:30px;
+	background:blue;
+	position:relative;
+	top:-15px;
+	color:white;
+	text-align:center;
+	line-height:30px;
+	transform: rotate(0deg);
+}
+.spaceShip1{	
+	left : 60px;
+	transform-origin:center 105px;
+}
+.spaceShip2{
+	left:  120px;
+	transform-origin:center 165px;
+}
+.spaceShip3{
+	left: 170px;
+	transform-origin:center 215px;
+}
+.spaceShip4{
+	left: 220px;
+	transform-origin:center 265px;
+}
+#log{
+	width:300px;
+	height:300px;
+	float:left;
+	border:solid 1px #ccc;
+	margin-left:30px;
+}
+#log p{
+	background:orange;
+	color:white;
+	text-align:center;
+}
