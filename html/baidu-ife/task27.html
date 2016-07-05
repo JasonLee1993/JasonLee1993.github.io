@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Task 26</title>
+	<title>Task 27</title>
 	<link href="css/task26.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+    <div id="pickSystem">
+		<p>动力系统选择： <input type="radio" value="low" name="consumeEnergy"/>前进号(速率30px/s,能耗5%/s) <input type="radio" value="medium" name="consumeEnergy"/>奔腾号(速率50px/s,能耗7%/s)<input type="radio" value="high" name="consumeEnergy"/>超越号(速率80px/s,能耗9%/s)</p>
+		<p>能源系统选择： <input type="radio" value="low" name="addEnergy"/>劲量型(补充速率2%/s) <input type="radio" value="medium" name="addEnergy"/>光能型(补充速率3%/s)<input type="radio" value="high" name="addEnergy"/>永久型(补充速率4%/s)</p>
+	</div>
+	<p style="color:pink">增加了BUS和ADAPTER模块，可以选择飞船型号！</p>
 	<div class="wrapper">
 	
 	<div id="messageSender">
@@ -33,6 +38,6 @@
 		<div class = "orbit3 orbit"></div>
 		<div class = "orbit4 orbit"></div>
 	</div>
-	<script src="js/task26.js"></script>
+	<script src="js/task27.js"></script>
 </body>
 </html>

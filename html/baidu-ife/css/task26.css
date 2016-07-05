@@ -3,9 +3,6 @@
 	padding:0;
 	font-family:"微软雅黑"
 }
-#messageSender p{
-	margin:10px;
-}
 #messageSender p button{
 	margin-right:10px;
 }
@@ -13,7 +10,8 @@
 	width:100px;
 	height:100px;
 	position:fixed;
-	background:orange;
+	background-image:url("../images/earth.png");
+	background-size: 110px 110px;
 	top:50%;
 	left:50%;
 	transform:translate(-50px,-50px);
@@ -91,10 +89,25 @@
 	height:300px;
 	float:left;
 	border:solid 1px #ccc;
-	margin-left:30px;
+	overflow:auto;
 }
 #log p{
 	background:orange;
 	color:white;
 	text-align:center;
+}
+#log div{
+	overflow:auto;
+	color:white;
+}
+.wrapper{
+    display:flex;
+    justify-content:space-between;
+    padding:10px;
+}
+body{
+	background-image:url("../../../images/background-mobile.jpg");
+}
+#pickSystem p{
+	color:white;
 }

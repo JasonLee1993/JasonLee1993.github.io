@@ -10,22 +10,96 @@ for (var i = 0; i < buttons.length; i++) {
 
 //指挥官对象
 var Commander = {
+		radios: [],
 		sendMessage: function(orbit, message) {
-			//延迟1秒钟发送
-			setTimeout(function() {
-				//模拟丢包率0.3
-				var random = Math.random();
-				if (random < 0.3) {
-					log.sendData("丢包！");
-					return;
-				} else {
-					log.sendData("成功！");
-					SpaceShipStation.processMessage(orbit, message);
+			var pick = document.querySelectorAll("#pickSystem")[0];
+			var radiosInput = pick.getElementsByTagName("input");
+			this.radios = [];
+			for (var i = 0; i < radiosInput.length; i++) {
+				if (radiosInput[i].checked) {
+					if (radiosInput[i].name == "consumeEnergy") {
+						switch (radiosInput[i].value) {
+							case "low":
+								this.radios.push(30, 5);
+								break;
+							case "medium":
+								this.radios.push(50, 7);
+								break;
+							case "hith":
+								this.radios.push(80, 9);
+								break;
+						}
+					}
+					if (radiosInput[i].name == "addEnergy") {
+						switch (radiosInput[i].value) {
+							case "low":
+								this.radios.push(2);
+								break;
+							case "medium":
+								this.radios.push(3);
+								break;
+							case "high":
+								this.radios.push(4);
+								break;
+						}
+					}
 				}
-			}, 1000);
-		}
+			}
+			if (this.radios.length != 3) {
+				alert("请选择飞船型号！");
+				return;
+			}
+			this.bus(this.Adapter(orbit, message));
+		},
+		//commander端配置器
+		Adapter: function(orbit, message) {
+			var binaryNum = "";
+			switch (orbit) {
+				case 1:
+					binaryNum += "00";
+					break;
+				case 2:
+					binaryNum += "01";
+					break;
+				case 3:
+					binaryNum += "10";
+					break;
+				case 4:
+					binaryNum += "11";
+					break;
+			}
+			switch (message) {
+				case "create":
+					binaryNum += "00";
+					break;
+				case "fly":
+					binaryNum += "01";
+					break;
+				case "stop":
+					binaryNum += "10";
+					break;
+				case "destroy":
+					binaryNum += "11";
+					break;
+			}
+			return binaryNum;
+		},
+	//延迟1秒钟发送
+	bus: function(binaryMessage) {
+		setTimeout(function() {
+			//模拟丢包率0.1
+			var random = Math.random();
+			if (random < 0.1) { //概率减少
+				log.sendData("丢包！");
+				Commander.bus(binaryMessage); //重试
+			} else {
+				log.sendData("成功！");
+				SpaceShipStation.processMessage(binaryMessage);
+			}
+		}, 1000);
 	}
-	//空间站对象
+}
+//空间站对象
 var SpaceShipStation = {
 	flyInterval: [],
 	energyInterval: [],
@@ -33,25 +107,70 @@ var SpaceShipStation = {
 		status: "not exist", //轨道状态
 		energy: 0, //飞船能量
 		rate: 0, //飞船速度
-		angle: 0 //飞船角度
+		angle: 0, //飞船角度
+		consumed: 0,
+		added: 0
 	}, {
 		status: "not exist",
 		energy: 0,
 		rate: 0,
-		angle: 0
+		angle: 0,
+		consumed: 0,
+		added: 0
 	}, {
 		status: "not exist",
 		energy: 0,
 		rate: 0,
-		angle: 0
+		angle: 0,
+		consumed: 0,
+		added: 0
 	}, {
 		status: "not exist",
 		energy: 0,
 		rate: 0,
-		angle: 0
+		angle: 0,
+		consumed: 0,
+		added: 0
 	}],
-	processMessage: function(orbit, message) {
-		switch (message) {
+	//空间站端解配器
+	Adapter: function(binaryMessage) {
+		var firstPart = binaryMessage.slice(0, 2);
+		var secondPart = binaryMessage.slice(2);
+		var message = [];
+		switch (firstPart) {
+			case "00":
+				message.push(1);
+				break;
+			case "01":
+				message.push(2);
+				break;
+			case "10":
+				message.push(3);
+				break;
+			case "11":
+				message.push(4);
+				break;
+		}
+		switch (secondPart) {
+			case "00":
+				message.push("create");
+				break;
+			case "01":
+				message.push("fly");
+				break;
+			case "10":
+				message.push("stop");
+				break;
+			case "11":
+				message.push("destroy");
+				break;
+		}
+		return message;
+	},
+	processMessage: function(binaryMessage) {
+		var message = this.Adapter(binaryMessage);
+		var orbit = message[0];
+		switch (message[1]) {
 			case 'create':
 				this.createSpaceShip(orbit);
 				break;
@@ -83,8 +202,10 @@ var SpaceShipStation = {
 			this.shipList[orbit - 1] = {
 				status: "exist",
 				energy: 100,
-				rate: 36 / 50,
-				angle: 0
+				rate: Commander.radios[0] / 50,
+				angle: 0,
+				consumed: Commander.radios[1],
+				added: Commander.radios[2]
 			}
 			this.energyInterval[orbit] = setInterval(function() {
 				SpaceShip.solarEnergy(orbit);
@@ -120,7 +241,9 @@ var SpaceShipStation = {
 				status: "not exist",
 				energy: 0,
 				rate: 0,
-				angle: 0
+				angle: 0,
+				consumed: 0,
+				added: 0
 			}
 		}
 	}
@@ -134,10 +257,12 @@ var SpaceShip = {
 		var energy1 = SpaceShipStation.shipList[orbit - 1].energy;
 		var rate1 = SpaceShipStation.shipList[orbit - 1].rate;
 		var angle1 = SpaceShipStation.shipList[orbit - 1].angle;
+		var consumed1 = SpaceShipStation.shipList[orbit - 1].consumed;
+		var added1 = SpaceShipStation.shipList[orbit - 1].added;
 		angle1 = (angle1 + rate1) % 360;
-		energy1 = energy1 - 0.2;
+		energy1 = energy1 - consumed1 / 50; //消耗能源
 		if (energy1 < 0) {
-			angle1 = (angle1 + rate1 * ((0.2 + energy1) / 0.2)) % 360;
+			angle1 = (angle1 + rate1 * ((consumed1 / 50 + energy1) / (consumed1 / 50))) % 360;
 			energy1 = 0;
 		}
 		ShipMod.style.transform = "rotate(" + angle1 + "deg)";
@@ -146,7 +271,9 @@ var SpaceShip = {
 				status: "exist",
 				energy: energy1,
 				rate: rate1,
-				angle: angle1
+				angle: angle1,
+				consumed: consumed1,
+				added: added1
 			}
 		} else {
 			SpaceShipStation.stopSpaceShip(orbit);
@@ -155,10 +282,11 @@ var SpaceShip = {
 	//太阳能增加能量
 	solarEnergy: function(orbit) {
 		var energy1 = SpaceShipStation.shipList[orbit - 1].energy;
+		var added1 = SpaceShipStation.shipList[orbit - 1].added;
 		if (energy1 > 100) {
 			energy1 = 100;
 		}
-		SpaceShipStation.shipList[orbit - 1].energy = energy1 + 0.05;
+		SpaceShipStation.shipList[orbit - 1].energy = energy1 + added1 / 50;
 	},
 	render: function(orbit) {
 		var ShipMod = document.getElementsByClassName("spaceShip" + orbit)[0];
