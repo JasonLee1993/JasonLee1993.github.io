@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 29</title>
+	<style>
+		form{
+			width:400px;
+			margin:0 auto;
+		}
+		form div+div{
+			margin-top:20px;
+		}
+		*{
+			font-family: "微软雅黑";
+			font-size:14px;
+		}
+		input{
+			border-radius: 5px;
+			border:solid 1px #ccc;
+		}
+		button{
+			border-radius: 5px;
+			background:#2f79ba;
+			color:white;
+		}
+		input:invalid{
+			border:1px red solid;
+		}
+		input:valid{
+			border:1px green solid;
+		}
+	</style>
+</head>
+<body>
+<form>
+	<div>
+		<label for="name">名称</label>
+		<input id="name" required="true"/>
+		<button>验证</button>
+	</div>
+	</form>
+	<script>
+		var button = document.getElementsByTagName("button")[0];
+		var a = document.getElementById("name");
+		button.addEventListener("click",function(){
+			var temp = a.value.trim();//去空格
+			var long = 0;
+			for(var i=0;i<temp.length;i++){
+				if(temp.charCodeAt(i)<=128&&temp.charCodeAt(i)>=0){
+					long++;
+				}
+				else{
+					long+=2;
+				}
+			}
+			if(!(long>=4&&long<=14)){
+				a.setCustomValidity("必填，长度为4~16个字符！");
+			}
+			else{
+				//a.validity.valid == true;
+				;
+			}
+		});
+	</script>
+</body>
+</html>
